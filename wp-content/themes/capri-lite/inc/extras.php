@@ -116,7 +116,7 @@ function capri_show_page_header( $page_type ) {
 			$page_title =
 				sprintf(
 					/* translators: %s is Search query */
-					esc_html__( 'Search Results for: %s', 'capri-lite' ),
+					esc_html__( 'Поиск: %s', 'capri-lite' ),
 					'<span>' . get_search_query() . '</span>'
 				);
 			break;

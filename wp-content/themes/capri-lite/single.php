@@ -11,43 +11,50 @@
  */
 
 get_header();
+$acf_fields = get_field_objects( get_the_ID() );
 capri_show_categories( 'blog' ); ?>
 
-	<div class="container">
-		<div class="row">
+    <div class="container">
+        <div class="row">
 
-			<div id="primary" class="col-xs-12 col-sm-12 col-md-8 content-area content-area-single">
-				<main id="main" class="site-main">
+            <div id="primary" class="col-xs-12 col-sm-12 col-md-8 content-area content-area-single">
+                <main id="main" class="site-main">
 
-				<?php
-				while ( have_posts() ) :
-					the_post();
+                    <?php
+                    while ( have_posts() ) :
+                        the_post();
 
-					get_template_part( 'template-parts/content', get_post_format() );
+                        get_template_part( 'template-parts/content', get_post_format() );
 
-					the_post_navigation(
-						array(
-							'prev_text' => esc_html__( 'Prev Post', 'capri-lite' ),
-							'next_text' => esc_html__( 'Next Post', 'capri-lite' ),
-						)
-					);
+                        the_post_navigation(
+                            array(
+                                'prev_text' => esc_html__( 'Prev Post', 'capri-lite' ),
+                                'next_text' => esc_html__( 'Next Post', 'capri-lite' ),
+                            )
+                        );
 
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) :
-						comments_template();
-					endif;
+                        if ( is_array( $acf_fields ) ) {
+                            foreach ( $acf_fields as $field ) {
+                                echo $field['label'] . ': ' . $field['value'] . '<br>';
+                            }
+                        }
 
-				endwhile; // End of the loop.
-				?>
+                        // If comments are open or we have at least one comment, load up the comment template.
+                        if ( comments_open() || get_comments_number() ) :
+                            comments_template();
+                        endif;
 
-				</main><!-- #main -->
-			</div><!-- #primary -->
+                    endwhile; // End of the loop.
+                    ?>
 
-			<?php
-			get_sidebar();
-			?>
-		</div><!-- .row -->
-	</div><!-- .container -->
+                </main><!-- #main -->
+            </div><!-- #primary -->
+
+            <?php
+            get_sidebar();
+            ?>
+        </div><!-- .row -->
+    </div><!-- .container -->
 
 <?php
 get_footer();

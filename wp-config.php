@@ -80,6 +80,8 @@ define('WP_DEBUG', false);
 
 /* Это всё, дальше не редактируем. Успехов! */
 
+define('DISALLOW_FILE_EDIT', true);
+
 /** Абсолютный путь к директории WordPress. */
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');

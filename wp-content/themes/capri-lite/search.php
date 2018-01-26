@@ -52,8 +52,8 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 					// Previous/next page navigation.
 					the_posts_pagination(
 						array(
-							'prev_text'          => esc_html__( 'Newer posts', 'capri-lite' ),
-							'next_text'          => esc_html__( 'Older posts', 'capri-lite' ),
+							'prev_text'          => esc_html__( 'Вперед', 'capri-lite' ),
+							'next_text'          => esc_html__( 'Назад', 'capri-lite' ),
 							'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'capri-lite' ) . ' </span>',
 						)
 					);
