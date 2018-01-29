@@ -60,12 +60,12 @@ if ( ! function_exists( 'capri_entry_footer' ) ) :
 				echo '<div class="single-cat-links">';
 				if ( $categories_list && capri_categorized_blog() ) {
 					/* translators: %1$s is categories list */
-					printf( '<span class="cat-links">' . esc_html__( 'posted under: %1$s', 'capri-lite' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+					printf( '<span class="cat-links">' . esc_html__( 'Категория: %1$s', 'capri-lite' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 				}
 
 				if ( $tags_list ) {
 					/* translators: %1$s is tags list */
-					printf( '<span class="tags-links">' . esc_html__( 'tagged: %1$s', 'capri-lite' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+					printf( '<span class="tags-links">' . esc_html__( 'Метки: %1$s', 'capri-lite' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 				}
 				echo '</div>';
 			}

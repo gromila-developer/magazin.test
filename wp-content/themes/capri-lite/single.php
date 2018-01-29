@@ -21,6 +21,11 @@ capri_show_categories( 'blog' ); ?>
                 <main id="main" class="site-main">
 
                     <?php
+                    if ( is_array( $acf_fields ) ) {
+                        foreach ( $acf_fields as $field ) {
+                            echo $field['label'] . ': ' . $field['value'] . ' ';
+                        }
+                    }
                     while ( have_posts() ) :
                         the_post();
 
@@ -28,16 +33,10 @@ capri_show_categories( 'blog' ); ?>
 
                         the_post_navigation(
                             array(
-                                'prev_text' => esc_html__( 'Prev Post', 'capri-lite' ),
-                                'next_text' => esc_html__( 'Next Post', 'capri-lite' ),
+                                'prev_text' => esc_html__( 'Предыдущий товар', 'capri-lite' ),
+                                'next_text' => esc_html__( 'Следующий товар', 'capri-lite' ),
                             )
                         );
-
-                        if ( is_array( $acf_fields ) ) {
-                            foreach ( $acf_fields as $field ) {
-                                echo $field['label'] . ': ' . $field['value'] . '<br>';
-                            }
-                        }
 
                         // If comments are open or we have at least one comment, load up the comment template.
                         if ( comments_open() || get_comments_number() ) :
