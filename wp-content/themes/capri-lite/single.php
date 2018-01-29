@@ -23,7 +23,9 @@ capri_show_categories( 'blog' ); ?>
                     <?php
                     if ( is_array( $acf_fields ) ) {
                         foreach ( $acf_fields as $field ) {
-                            echo $field['label'] . ': ' . $field['value'] . ' ';
+                            if ( ! empty( $field['label'] ) and ! empty( $field['value'] ) ) {
+                                echo $field['label'] . ': ' . $field['value'] . ' ';
+                            }
                         }
                     }
                     while ( have_posts() ) :
