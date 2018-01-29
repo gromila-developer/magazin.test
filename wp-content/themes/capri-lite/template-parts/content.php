@@ -57,7 +57,7 @@
 			the_content(
 				sprintf(
 					/* translators: %s: Name of current post. */
-					esc_html__( 'Continue reading %s', 'capri-lite' ),
+					esc_html__( 'Подробнее %s', 'capri-lite' ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				)
 			);
